@@ -1,8 +1,16 @@
+import { NavLink, Outlet } from "react-router-dom"
+
 export default function Root (){
 
     return (
-        <nav className="">
-            <h2>User Profiles</h2>
-        </nav>
+        <div>
+            <nav><h2>Users</h2>
+                <NavLink to='/'>Users</NavLink>
+                </nav>
+        <main>
+            <Outlet />
+        </main>
+    </div>
+
     )
 }
