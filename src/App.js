@@ -38,7 +38,7 @@ const updateUserId=(userId)=>{
     createRoutesFromElements(
       <Route path="/" element={<Root/>}>
         <Route path="/" element={<UserList  userList={userList} updateUserId={updateUserId}/>}/>
-      <Route path="User" element={<User userList={userList} userId={userId}/>}/>
+      <Route path="User" element={<User userList={userList} userId={userId} updateUserId={updateUserId}/>}/>
       </Route>
       
     )

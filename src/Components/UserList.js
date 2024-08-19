@@ -1,22 +1,33 @@
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+const bodyStyle = {
+  fontFamily: "Arial, sans-serif",
+  backgroundColor: '#f0f0f0',
+  margin: 0,
+  padding: 0,
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  height: "100vh"
+}
 
-export default function UserList({userList, updateUserId}) {
-    
+export default function UserList({ userList, updateUserId }) {
 
-    
-    return (
-    
-       
-    <>
- <div>
-      <h1>User List</h1>
-      <ul>
-        {userList.map(user => (
-          <li key={user.id}><NavLink onClick={()=>updateUserId(user.id)} to="user">{user.name}</NavLink></li> 
-        ))}
-      </ul>
+
+
+  return (
+
+
+
+    <div style={bodyStyle}>
+      <div className="bg-white p-5 rounded-lg shadow-md w-2/3 text-center">
+        <h1 className="mb-5 text-2xl text-gray-900">User List</h1>
+        <ul>
+          {userList.map(user => (
+            <NavLink onClick={() => updateUserId(user.id)} key={user.id} to="user"><li className="m-1 p-3 rounded bg-gray-700 text-white hover:bg-slate-600" >{user.name}</li> </NavLink>
+          ))}
+        </ul>
+      </div>
     </div>
-        </>
-    )
+
+  )
 }
