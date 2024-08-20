@@ -13,9 +13,14 @@ function App() {
   const [userId, setUserId]= useState('')
   const [userList,setUserList]=useState([])
   const [loading, setLoading]=useState(true)
+  const [breadcrumbs,setBreadcrumbs]= useState([])
 
 const updateUserId=(userId)=>{
   setUserId(userId)
+}
+
+const updateBreadcrumbs=(crumbUsername,crumbId)=>{
+  setBreadcrumbs((b)=>[{crumbUsername:crumbUsername,crumbId:crumbId}, ...b])
 }
 
   useEffect(()=>{
@@ -36,9 +41,9 @@ const updateUserId=(userId)=>{
 
   const router=createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<Root/>}>
-        <Route path="/" element={<UserList  userList={userList} updateUserId={updateUserId}/>}/>
-      <Route path="User" element={<User userList={userList} userId={userId} updateUserId={updateUserId}/>}/>
+      <Route path="/" element={<Root breadcrumbs={breadcrumbs} updateUserId={updateUserId}/>}>
+        <Route path="/" element={<UserList  userList={userList} updateUserId={updateUserId} updateBreadcrumbs={updateBreadcrumbs}/>}/>
+      <Route path="User" element={<User userList={userList} userId={userId} updateUserId={updateUserId} updateBreadcrumbs={updateBreadcrumbs}/>}/>
       </Route>
       
     )
