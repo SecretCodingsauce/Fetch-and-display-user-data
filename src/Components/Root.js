@@ -5,10 +5,12 @@ export default function Root ({breadcrumbs, updateUserId}){
 let bc0=''
 let bc1=''
 let bc2=''
+let bc3=''
 
 if (breadcrumbs[0]){bc0= `| ${breadcrumbs[0].crumbUsername} `}
 if (breadcrumbs[1]){bc1= `| ${breadcrumbs[1].crumbUsername} `}
 if (breadcrumbs[2]){bc2= `| ${breadcrumbs[2].crumbUsername} `}
+if (breadcrumbs[3]){bc2= `| ${breadcrumbs[3].crumbUsername} `}
 
 
     return (
@@ -19,7 +21,8 @@ if (breadcrumbs[2]){bc2= `| ${breadcrumbs[2].crumbUsername} `}
                 <div><NavLink className="underline text-gray-600 hover:text-gray-700 font-semibold" to='/'>UserList </NavLink>
                 <NavLink onClick={()=>updateUserId(breadcrumbs[0].crumbId)} className="underline text-gray-600 hover:text-gray-700 font-semibold" to='user'>{`${bc0}`}</NavLink>
                 <NavLink onClick={()=>updateUserId(breadcrumbs[1].crumbId)} className="underline text-gray-600 hover:text-gray-700 font-semibold" to='user'>{`${bc1}`}</NavLink>
-                <NavLink onClick={()=>updateUserId(breadcrumbs[2].crumbId)} className="underline text-gray-600 hover:text-gray-700 font-semibold" to='user'>{`${bc2}`}</NavLink></div>
+                <NavLink onClick={()=>updateUserId(breadcrumbs[2].crumbId)} className="underline text-gray-600 hover:text-gray-700 font-semibold" to='user'>{`${bc2}`}</NavLink>
+                <NavLink onClick={()=>updateUserId(breadcrumbs[3].crumbId)} className="underline text-gray-600 hover:text-gray-700 font-semibold" to='user'>{`${bc3}`}</NavLink></div>
                 </nav>
         <main className="relative">
             <Outlet />

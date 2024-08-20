@@ -43,7 +43,7 @@ const updateBreadcrumbs=(crumbUsername,crumbId)=>{
   const router=createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Root breadcrumbs={breadcrumbs} updateUserId={updateUserId}/>}>
-        <Route path="/" element={<UserList  userList={userList} updateUserId={updateUserId} updateBreadcrumbs={updateBreadcrumbs}/>}/>
+        <Route path="/" element={<UserList loading={loading} userList={userList} updateUserId={updateUserId} updateBreadcrumbs={updateBreadcrumbs}/>}/>
       <Route path="User" element={<User userList={userList} userId={userId} updateUserId={updateUserId} updateBreadcrumbs={updateBreadcrumbs}/>}/>
       
       <Route path="*" element={<NotFound/>} />
