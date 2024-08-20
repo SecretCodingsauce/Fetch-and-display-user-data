@@ -5,6 +5,7 @@ import UserList from './Components/UserList';
 import User from './Components/User';
 import { useEffect, useState } from "react";
 import axios from "axios"
+import NotFound from "./Components/NotFound";
 
 
 
@@ -44,6 +45,8 @@ const updateBreadcrumbs=(crumbUsername,crumbId)=>{
       <Route path="/" element={<Root breadcrumbs={breadcrumbs} updateUserId={updateUserId}/>}>
         <Route path="/" element={<UserList  userList={userList} updateUserId={updateUserId} updateBreadcrumbs={updateBreadcrumbs}/>}/>
       <Route path="User" element={<User userList={userList} userId={userId} updateUserId={updateUserId} updateBreadcrumbs={updateBreadcrumbs}/>}/>
+      
+      <Route path="*" element={<NotFound/>} />
       </Route>
       
     )
